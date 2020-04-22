@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+:root {
+  --red: #ef476f;
+  --yellow: #ffd166;
+  --green: #06d6a0;
+  --blue: #118ab2;
+  --dark: #333;
+  --light: #fff;
+}
+
 body {
   font-size: 14px;
   color: #333;
@@ -17,12 +26,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.h-space {
-  width: 1rem;
-}
-
-.v-space {
-  height: 1rem;
 }

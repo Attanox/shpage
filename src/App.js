@@ -4,7 +4,10 @@ import axios from "axios";
 import Loader from "./components/loader/Loader";
 import Navbar from "./components/navbar/Navbar";
 
+import { VerticalSpace, Emoji } from "./components/styled/main";
+
 import "./App.css";
+import styled from "styled-components";
 
 const API_KEY = "25a856b1d0de2e2809f9f5115b3cf004";
 
@@ -65,6 +68,22 @@ function getImgUrl(extension, path, mode) {
   return `${path}/${mode}.${extension}`;
 }
 
+const Title = styled.h1`
+  text-align: center;
+  color: var(--dark);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  font-weight: 200;
+`;
+
+const NavbarSpace = styled.div`
+  width: 100%;
+  height: 10vh;
+  @media (max-width: 600px) {
+    height: 15vh;
+  }
+`;
+
 function App() {
   const [loading, setLoading] = useState(false);
   const [characters] = useAsyncHook(setLoading);
@@ -74,18 +93,17 @@ function App() {
         <Loader />
       ) : loading === null ? (
         <h1>
-          No Characters Found{" "}
-          <span role="img" aria-label="crying emoji">
-            😢
-          </span>
+          No Characters Found <Emoji label="crying emoji">😢</Emoji>
         </h1>
       ) : (
         <React.Fragment>
           <Navbar />
-          <h1 className="text-center">Heroes Of The Day</h1>
-          <div className="v-space"></div>
-          <div className="v-space"></div>
-          <div className="v-space"></div>
+          <NavbarSpace />
+          <VerticalSpace />
+          <Title>Heroes Of The Day</Title>
+          <VerticalSpace />
+          <VerticalSpace />
+          <VerticalSpace />
           {characters && (
             <div className="d-grid">
               {characters.map((character) => (
