@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 
 import SearchBar from "./SearchBar";
-import { Emoji } from "../styled/main";
+import { Emoji, StyledLink } from "../styled/main";
 
 const Nav = styled.div`
   position: fixed;
@@ -49,7 +49,9 @@ export default function Navbar() {
     <Nav>
       <div className="nav-bar" ref={NavBar}>
         <div className="logo">
-          <Emoji label="logo">🤖</Emoji>
+          <StyledLink to={"/"}>
+            <Emoji label="logo">🤖</Emoji>
+          </StyledLink>
         </div>
         <SearchBar navWidth={navWidth} />
       </div>

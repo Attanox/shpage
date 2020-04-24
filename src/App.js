@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
+import { GlobalProvider } from "./context/GlobalState";
+
 import Navbar from "./components/navbar/Navbar";
 import Dashboard from "./components/layout/Dashboard";
 import Hero from "./components/layout/Hero";
@@ -22,13 +24,15 @@ function App() {
   return (
     <Router>
       <React.Fragment>
-        <Navbar />
-        <NavbarSpace />
-        <VerticalSpace />
-        <Switch>
-          <Route exact path="/" component={Dashboard} />
-          <Route exact path="/hero/:heroIndex" component={Hero} />
-        </Switch>
+        <GlobalProvider>
+          <Navbar />
+          <NavbarSpace />
+          <VerticalSpace />
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/hero/:heroIndex" component={Hero} />
+          </Switch>
+        </GlobalProvider>
       </React.Fragment>
     </Router>
   );

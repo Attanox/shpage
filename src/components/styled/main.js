@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HorizontalSpace = styled.div`
@@ -14,6 +15,18 @@ export const Title = styled.h1`
   font-size: 2rem;
   letter-spacing: 2px;
   font-weight: 200;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
 `;
 
 export const Emoji = (props) => {
